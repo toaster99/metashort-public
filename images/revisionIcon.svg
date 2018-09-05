@@ -1,0 +1,23 @@
+<svg width="230" height="80" viewBox="0 0 230 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>revisionIcon</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(124 -420)">
+<g id="revisionIcon">
+<g id="Rectangle 15">
+<use xlink:href="#path0_fill" transform="translate(26 420)" fill="#A7E6FE"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path0_fill" transform="translate(-24 420)" fill="#7DDAFF"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path0_fill" transform="translate(-74 420)" fill="#50CEFF"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path0_fill" transform="translate(-124 420)" fill="#2FC3FD"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 20C 0 8.95431 8.95431 0 20 0L 60 0C 71.0457 0 80 8.95431 80 20L 80 60C 80 71.0457 71.0457 80 60 80L 20 80C 8.95431 80 0 71.0457 0 60L 0 20Z"/>
+</defs>
+</svg>

@@ -1,0 +1,8 @@
+CREATE TABLE `clickTracking` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `siteID` int(11) NOT NULL,
+  `referer` varchar(255) DEFAULT NULL,
+  `ipAddress` varchar(15) DEFAULT NULL,
+  `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

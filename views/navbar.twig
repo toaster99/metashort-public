@@ -1,0 +1,20 @@
+{% block navbar %}
+	<div class="" id="navbar">
+		<a href="/"><div class="logo">
+			<img src="/images/logoVector.svg" alt="" />
+		</div></a>
+		<i class="fa fa-bars mobileHamburger" onclick="$('.navList').toggle();"></i>
+		<ul class="navList">
+			<li><a href="/">home</a></li>		
+			<li><a href="/faqs" class="{{ path == '/faqs.php' ? 'current' : '' }}">faqs</a></li>
+			<li><a href="mailto:devalexwhite@gmail.com">contact</a></li>
+			{% if userID > 0 %}
+				<li><a href="/logout">logout</a></li>
+				<li><a href="/account" class="{{ path == '/account/index.php' ? 'current' : '' }}">account</a></li>
+			{% else %}
+				<li><a href="/pro" class="{{ path == '/pageProPromo.php' ? 'current' : '' }}">signup</a></li>
+				<li><a href="/login" class="{{ path == '/account/login.php' ? 'current' : '' }}">login</a></li>
+			{% endif %}
+		</ul>
+	</div>
+{% endblock %}

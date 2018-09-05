@@ -1,0 +1,77 @@
+{% extends 'master.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/pages/pageSignup-min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageProPromo">
+		<div class="container full-height text-center">
+			{% include 'widgets/errorMessages.twig' %}
+			<h3>Take control of your social media links with<br><strong>MetaShort Pro</strong></h3>
+			<div class="row" style="margin-top: 40px;">
+				<div class="col-md-12 col-lg-4 pl-4 pr-4">
+					<a target="_blank" href="/images/promo1.png"><div style="background-image: url('/images/promo1.png');" alt="" class="imgBox"></div></a>
+					<p class="text-muted mt-4">Manage your MetaShort links</p>
+				</div>
+				<div class="col-md-12 col-lg-4 pl-4 pr-4">
+					<a target="_blank" href="/images/promo2.png"><div style="background-image: url('/images/promo2.png');" alt="" class="imgBox"></div></a>
+					<p class="text-muted mt-4">View click statistics for each link</p>
+				</div>
+				<div class="col-md-12 col-lg-4 pl-4 pr-4">
+					<a target="_blank" href="/images/promo3.png"><div style="background-image: url('/images/promo3.png');" alt="" class="imgBox"></div></a>
+					<p class="text-muted mt-4">Edit your meta data at any time</p>
+				</div>
+			</div>
+			<div class="card d-flex align-items-center">
+				<p class="lead"><strong>Pro Perks</strong></p>
+				<hr>
+				<div class="text-left">
+					<p><i class="fa fa-check mr-1"></i>Save links to your account<br></p>
+					<p><i class="fa fa-check mr-1"></i>Update your links at any time<br></p>
+					<p><i class="fa fa-check mr-1"></i>View click statistics and referral data for your links<br></p>
+					<p><i class="fa fa-check mr-1"></i>Priority support from MetaShort<br></p>
+					<p class="text-muted"><i class="fa fa-clock-o mr-1"></i>Customize your MetaShort URL (coming soon)<br></p>
+					<p class="text-muted"><i class="fa fa-clock-o mr-1"></i>Upload images and generate dynamic images (coming soon)<br></p>
+				</div>
+			</div>
+			<h3>Join for only ${{ monthlySubscriptionCost }}/month<br>
+				<strong>Your first month is free and you can cancel at any time!</strong>
+			</h3>
+			<button type="button" data-toggle="modal" data-target="#signupModal" href="/signup" class="btn btn-primary btn-lg w-75">Join MetaShort Pro</button>
+			<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-body">
+							<form id="formMembershipSignup" action="/signup" method="POST" class="mt-4">
+								<input type="hidden" name="action" value="signup">
+								<div class="form-group">
+									<label for="emailAddress" class="">Email address</label>
+									<input type="email" placeholder="me@company.com" name="emailAddress" class="form-control" id="inputEmailAddress"/>
+								</div>
+								<div class="form-group">
+									<label class="" for="password">Password</label>
+									<input type="password" placeholder="********" name="password" class="form-control" id="inputPassword"/>
+								</div>
+								<div class="form-group">
+									<label for="card-element">
+										Credit or debit card
+									</label>
+									<div id="card-element" class="form-control">
+										<!-- a Stripe Element will be inserted here. -->
+									</div>
+									<!-- Used to display Element errors -->
+									<div id="card-errors" role="alert"></div>
+								</div>
+								<div class="">
+									<button class="btn btn-primary w-100" type="submit">Join MetaShort Pro</button>
+								</div>
+								<p class="text-muted text-center mt-4" id="disclosure"><small>Your first month is <strong>free</strong>, after which you will automatically be charged ${{ monthlySubscriptionCost }}/month. Payments are processed through Stripe and can be cancelled anytime.</small></p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

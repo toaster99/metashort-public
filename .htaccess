@@ -1,0 +1,21 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /
+RewriteEngine On
+RewriteRule ^$ /index.php [NC,L]
+RewriteRule ^(.*)/edit$ /pageEditor.php?shortURL=$1 [NC,L]
+RewriteRule ^(.*)/stats$ /pageStats.php?shortURL=$1 [NC,L]
+RewriteRule ^about$ /about.php [NC,L]
+RewriteRule ^comingsoon$ /paidcomingsoon.php [NC,L]
+RewriteRule ^pro$ /pageProPromo.php [NC,L]
+RewriteRule ^changelog$ /changelog.php [NC,L]
+RewriteRule ^faqs$ /faqs.php [NC,L]
+RewriteRule ^signup$ /account/signup.php [NC,L]
+RewriteRule ^login$ /account/login.php [NC,L]
+RewriteRule ^logout$ /account/login.php?action=logout [NC,L]
+RewriteRule ^account/$ /account/index.php$1 [NC,L]
+RewriteRule ^account/manage$ /account/manage.php$1 [NC,L]
+RewriteRule ^account/site/(.*)$ /account/site.php?shortURL=$1 [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /page.php?id=$1 [NC,L]

@@ -1,0 +1,31 @@
+<div class="twitterSummaryContainer">
+	<a href="">
+		<div class="imageContainer"
+			{% if meta['imageURL'] %}style="background-image: url('{{ meta['imageURL'] }}');" 
+			{% elseif meta['og:image:url'] %}style="background-image: url('{{ meta['og:image:url'] }}');" 
+			{% elseif meta['twitter:image'] %}style="background-image: url('{{ meta['twitter:image'] }}');" 
+			{% endif %}
+		>
+			
+		</div>
+		<div class="contentContainer">
+			<div class="content">
+				<span class="twitterCardTitle">
+					{% if meta['title'] %}{{ meta['title'] }}
+					{% elseif  meta['og:title'] %}{{ meta['og:title'] }}
+					{% elseif  meta['twitter:title'] %}{{ meta['twitter:title'] }}
+					{% else %}No title
+					{% endif %}
+				</span>
+				<span class="twitterCardText">
+					{% if meta['description'] %}{{ meta['description'] }}
+					{% elseif  meta['og:description'] %}{{ meta['og:description'] }}
+					{% elseif  meta['twitter:description'] %}{{ meta['twitter:description'] }}
+					{% else %}No description
+					{% endif %}
+				</span>
+				<span class="twitterCardDestination">{{ meta['url'] }}</span>
+			</div>
+		</div>
+	</a>
+</div>

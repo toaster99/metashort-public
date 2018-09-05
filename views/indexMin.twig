@@ -1,0 +1,72 @@
+{% extends 'masterMin.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/moment.js"></script>
+	<script src="/scripts/index-min.js"></script>
+	<script src="/scripts/indexMetaFetcher-min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageIndexMin">
+		<div class="container">
+			<div class="indexLogo">
+				<img src="/images/logoVector.svg" alt="" />
+			</div>
+			<div class="indexHeader">
+				<h1>MetaShort</h1>
+			</div>
+			<i class="fa fa-bars mobileHamburger" onclick="$('.indexNav').toggle();"></i>
+			<ul class="indexNav">
+				<li><a href="/" class="navActive">home</a></li>		
+				<li><a href="/faqs">faqs</a></li>
+				<li><a href="mailto:devalexwhite@gmail.com">contact</a></li>
+				{% if userID > 0 %}
+					<li><a href="/logout">logout</a></li>
+					<li><a href="/account">account</a></li>
+				{% else %}
+					<li><a href="/pro">signup</a></li>
+					<li><a href="/login">login</a></li>
+				{% endif %}
+			</ul>
+			<div class="indexLinkForm">
+				<div class="indexLinkTextContainer">
+					<form action="/index.php" method="post">
+						<input name="headerLink" type="text" class="indexLinkText" placeholder="https://" id="inputHeaderLinkShortner"></input>
+						<input type="hidden" name="action" value="createSite" />
+						<button type="submit" class="inputLinkAction btn btn-link">customize</button>
+					</form>
+				</div>
+				<p class="lead">Enter a link above to customize how it’s displayed on social media</p>
+			</div>
+			<div class="indexSeeOthersText">
+				<h3>See how others are using MetaShort</h3>
+				<p>MetaShort allows you to change the image and text displayed when a link is shared on Twitter, Facebook, LinkedIn, and more.</p>
+			</div>
+			<div class="indexSeeOthersRecent">
+				{% for site in recentSites %}
+					<div class="recentItem">
+						<div class="cards">
+							{% include 'widgets/socialCards/twitterSummary.twig' with site %}
+						</div>
+						<div class="text">
+							<p>{{ site.URL|length > 50 ? site.URL|slice(0, 50) ~ '...' : site.URL }}</p>
+							<p class="lead">Customized by a
+							{% if site.userID >= 1 %}<a href="/pro">pro</a>
+							{% else %}free
+							{% endif %}
+							 user</p>
+						</div>
+					</div>
+				{% endfor %}
+				<script>
+					$(document).ready(function () {
+						$(".cardTime").each(function () {
+							let time = moment($(this).text()).fromNow();
+							$(this).text(time);
+						});
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+{% endblock %}

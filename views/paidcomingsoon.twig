@@ -1,0 +1,21 @@
+{% extends 'master.twig' %}
+
+{% block content %}
+	<div id="pageComingSoon">
+		<div class="container">
+			{% include 'widgets/errorMessages.twig' %}
+			<h3>We're not quite ready...</h3>
+			<p class="lead">Membership isn't available just yet. Want to register your interest and <strong>receive a discount</strong> when we launch? Just enter your email below!</p>
+			<div class="card mt-4">
+				<form action="">
+					<div class="form-group">
+						<label for="emailAddress">Email address</label>
+						<input type="email" name="emailAddress" placeholder="you@email.com" class="form-control" />
+						<input type="hidden" name="action" value="subscribe" />
+						<button class="btn btn-primary mt-4 pull-right">Subscribe to updates</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

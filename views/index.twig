@@ -1,0 +1,114 @@
+{% extends 'master.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/index-min.js"></script>
+	<script src="/scripts/indexMetaFetcher-min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageIndex">
+		{% if ref == 'producthunt' %}
+		<div class="alert" id="productHuntAlert" role="alert">
+			<h4 class="alert-heading mb-0">Hi Product Hunters 👋</h4>
+			<p>Suggestions? Comments? Bored? <a style="color: #ccff00;" target="_blank" href="http://twitter.com/share?text=Hey @AlexWhiteDev I think MetaShort is [insert feedback here]&url=https://www.producthunt.com/posts/metashort">Tell me on Twitter</a>. Make sure to grab <a style="color: #ccff00;" href="/pro?ref=homepagebanner">a free month of pro</a> before you leave!</p>
+		</div>
+		{% endif %}
+		<div id="imageHeader">
+			<div id="headerBackground"></div>
+			<div id="headerContent">
+				<div id="contentInner">
+					<h1>Change any link's social media preview</h1>
+					<h2>Enter a link below to customize how it appears on Twitter, Facebook, and more! </h2>
+					<form action="/index.php" method="post" class="w-100">
+						<div class="input-group" id="headerLinkDesktop">
+							<input type="hidden" name="action" value="createSite" />
+							<input type="text" class="form-control inputHeaderLink" placeholder="Paste a link to get started..." aria-label="Paste a link to get started..." name="headerLink">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-primary-lg" type="button">CUSTOMIZE</button>
+							</span>
+						</div>
+					</form>
+					<div class="" id="headerLinkMobile">
+						<form action="/index.php" method="post">
+							<input type="hidden" name="action" value="createSite" />
+							<input type="text" class="form-control inputHeaderLink" placeholder="Paste a link to get started..." aria-label="Paste a link to get started..." name="headerLink">
+							<button type="submit" class="btn btn-primary" type="button">Customize link</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="text-center">
+			<h3>
+				Bad link previews lead to bad engagement.<br>
+				<strong>MetaShort fixes that.</strong>
+			</h3>
+		</div>
+		<div id="indexFeatures" class="row">
+			<div class="col-md-4">
+				<img src="/images/tagIcon.svg" alt="">
+				<h4>Customize Your Links, Not Your Code</h4>
+				<p>Control exactly how your links appear when shared, all without modifying your website.</p>
+			</div>
+			<div class="col-md-4">
+				<img src="/images/graphIcon.svg" alt="">
+				<h4>Monitor the Difference</h4>
+				<p>See the difference engaging links make by monitoring clicks and referals through MetaShort.</p>
+			</div>
+			<div class="col-md-4">
+				<img src="/images/revisionIcon.svg" alt="">
+				<h4>Do More Than Ever Before</h4>
+				<p>MetaShort lets you manage your links and make changes to them even after they've been shared.</p>
+			</div>
+		</div>
+		<div id="indexAboutMetaTags">
+			<div class="row">
+				<div class="col-md-6 rowContent">
+					<h4>Say goodbye to bad social media cards</h4>
+					<p>Does the image on the right look familar? If you post links to social media, MetaShort can help you avoid poor link previews like this.</p>
+				</div>
+				<div class="col-md-6" id="metaBoxBadColumn">
+					<img src="/images/metaBoxBad.png" id="metaBoxBad" alt="">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" id="metaBoxGoodColumn">
+					<img src="/images/metaBoxGood.png" id="metaBoxGood" alt="">
+				</div>
+				<div class="col-md-6 rowContent">
+					<h4>Be in control of your links on social media</h4>
+					<p>MetaShort lets you completely customize how your link looks when shared. Go from no image and bad text to engaging content that you can change on the fly. </p>
+				</div>
+			</div>
+		</div>
+		<div class="text-center">
+			<h3>
+				MetaShort members can do more.
+			</h3>
+		</div>
+		<div id="indexAboutPricing">
+			<div id="pricingRow">
+				<div class="pricingCard">
+					<h6>BASIC</h6>
+					<h5>$0</h5>
+					<ul>
+						<li>Shorten links</li>
+						<li>Customize social media apperance</li>
+					</ul>
+				</div>
+				<div class="pricingCard primary">
+					<h6>PRO</h6>
+					<h5>${{ monthlySubscriptionCost }}<small>/month</small></h5>
+					<ul>
+						<li>Save and manage links</li>
+						<li>View analytics</li>
+						<li>Upload images (soon)</li>
+						<li>Customize MetaShort link (soon)</li>
+					</ul>
+					<p class="lead" style="color: white;"><strong>First month is free!</strong></p>
+					<a href="/pro" class="btn btn-white btn-rounder">Join Pro</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

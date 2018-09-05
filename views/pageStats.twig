@@ -1,0 +1,61 @@
+{% extends 'master.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/chart-min.js"></script>
+	<script src="/scripts/pages/pageStats-min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageEditor" class="full-height">
+		<div id="imageHeader">
+			<div id="headerBackground"></div>
+			<div id="headerContent">
+				<h2>Here's your new link to share</h2>
+				<input type="text" class="form-control" id="inputLink" value="https://metashort.co/{{ shortURL }}">
+			</div>
+		</div>
+		<div class="d-flex justify-content-center">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<a class="nav-link" href="/{{ shortURL }}/edit">🔧 Link editor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="/{{ shortURL }}/stats">📈 Click statistics {{ loggedIn ? '' : ' (Pro Feature)' }}</a>
+				</li>
+			</ul>
+		</div>
+		<div id="lineGraph30Days">
+			<div class="container">
+				<h3>Clicks over the last 30 days</h3>
+				<div class="card">
+					<canvas id="lineDays"></canvas>
+					<script>
+					$(document).ready(function () {
+							// Setup line graph
+							var clickData = {{ data30DayClicks|raw }};
+							var clickLabels = {{ labels30DayClicks|raw }};
+							initLineGraph(clickData, clickLabels, "lineDays");
+						})
+					</script>
+				</div>
+			</div>
+		</div>
+		<div id="pieGraphTrafficSources">
+			<div class="container">
+				<h3>Top referral sources</h3>
+				<div class="card">
+					<canvas id="pieReferral"></canvas>
+					<script>
+					$(document).ready(function () {
+							// Setup line graph
+							var dataReferralSources = {{ dataReferralSources|raw }};
+							var labelsReferralSources = {{ labelsReferralSources|raw }};
+							initPieGraph(dataReferralSources, labelsReferralSources, "pieReferral");
+						})
+					</script>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+{% endblock %}

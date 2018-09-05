@@ -1,0 +1,130 @@
+span.twitterCardTitle {
+	max-height: 1.3em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	color: black;
+	margin: 0 0 .15em;
+	text-decoration: none;
+	display: block;
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+
+	@include media-breakpoint-down(sm) {
+		font-size: 12px;
+		top: 10px;
+	}
+
+}
+
+span.twitterCardText {
+	margin-top: .323em;
+	max-height: 2.8em;
+	text-decoration: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	color: black;
+	display: block;
+	text-decoration: none;
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 30px;
+
+	@include media-breakpoint-down(sm) {
+		font-size: 10px;
+		max-height: 4em;
+		top: 30px;
+	}
+}
+
+span.twitterCardDestination {
+	text-transform: lowercase;
+	color: #8899A6;
+	max-height: 2em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	text-decoration: none;
+	position: absolute;
+	left: 6rem;
+	right: 10px;
+	bottom: 0;
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	right: 0px;
+
+	@include media-breakpoint-down(sm) {
+		font-size: 8px;
+		top: 65px;
+	}
+
+}
+
+.twitterSummaryContainer {
+	position: relative;
+	text-align: left;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.3em;
+	height: 6.5rem;
+
+	cursor: pointer;
+	outline-offset: -1px;
+	transition: background-color .15s ease-in-out, border-color .15s ease-in-out;
+
+	border-radius: .42857em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #E1E8ED;
+	box-sizing: border-box;
+	overflow: hidden;
+	background-color: white;
+
+	width: 450px;
+
+	@include media-breakpoint-down(sm) {
+		width: 100%;
+		height: 5.5rem;
+	}
+
+	a {
+		display: flex;
+		flex-direciton: row;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.imageContainer {
+		min-width: 6.5rem;
+		height: 6.5rem;
+
+		
+		border-right-width: 1px;
+		background-color: #E1E8ED;
+		background-image: url('/images/socialCards/twitterPlaceholder.svg');
+		background-size: 3em;
+		background-size: cover;
+
+		@include media-breakpoint-down(sm) {
+			min-width: 5.5rem;
+			height: 5.5rem;
+		}
+
+	}
+
+	.contentContainer {
+		padding: .75em;
+		height: 100%;
+		flex: 2;
+		position: relative;
+	}
+}

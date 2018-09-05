@@ -1,0 +1,22 @@
+{% extends 'master.twig' %}
+
+{% block content %}
+	<div class="container">
+		<div class="mt-4 pb-4 card">
+			{% include 'widgets/errorMessages.twig' %}
+			{% if site %}
+				<div class="text-center ">
+					<h3 class="text-muted">http://MetaShort{{ isDevServer ? '.dev/' : '.co/' }}{{ site.shortURL }}</h3>
+				</div>
+				<form action="/account/site/{{ site.shortURL }}" method="POST">
+					<input type="hidden" name="siteID" value="site.ID" />
+					{% include 'widgets/metaTagsForm.twig' with {'collapse' : false } %}
+				</form>
+			{% endif %}
+			<div class="w-100 mt-4">
+				<a class="btn btn-secondary pull-left" href="/account">Back</button>
+				<a href="" class="btn btn-primary pull-right">Update</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

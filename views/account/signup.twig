@@ -1,0 +1,42 @@
+{% extends 'master.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/pages/pageSignup-min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageSignup">
+		<div class="container full-height">
+			<h3 class="">Ready to take control of your social media posts?</h3>
+			<div class="card">
+				<p class="">MetaShort membership gives you more control over your links and meta tags. Membership is ${{ monthlySubscriptionCost }}/month and can be cancelled at any time.</p>
+				{% include 'widgets/errorMessages.twig' %}
+				<form id="formMembershipSignup" action="/account/signup.php" method="POST" class="mt-4">
+					<input type="hidden" name="action" value="signup">
+					<div class="form-group">
+						<label for="emailAddress" class="">Email address</label>
+						<input type="email" placeholder="me@company.com" name="emailAddress" class="form-control" id="inputEmailAddress"/>
+					</div>
+					<div class="form-group">
+						<label class="" for="password">Password</label>
+						<input type="password" placeholder="********" name="password" class="form-control" id="inputPassword"/>
+					</div>
+					<div class="form-group">
+						<label for="card-element">
+							Credit or debit card
+						</label>
+						<div id="card-element" class="form-control">
+							<!-- a Stripe Element will be inserted here. -->
+						</div>
+						<!-- Used to display Element errors -->
+						<div id="card-errors" role="alert"></div>
+					</div>
+					<div class="">
+						<button class="btn btn-primary w-100" type="submit">Join MetaShort 👍</button>
+					</div>
+					<p class="text-muted text-center" id="disclosure"><small>You will be charged for your first month immediately with a recurring subscription every month. You can cancel at any time from your profile. Payments are secured through Stripe.</small></p>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

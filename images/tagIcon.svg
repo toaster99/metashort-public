@@ -1,0 +1,29 @@
+<svg width="208" height="78" viewBox="0 0 208 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>tagIcon</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(1037 -422)">
+<g id="tagIcon">
+<g id="Rectangle 15">
+<use xlink:href="#path0_fill" transform="translate(-953.8 432.174)" fill="#2FC3FD"/>
+</g>
+<g id="Union">
+<use xlink:href="#path1_fill" transform="translate(-862.28 422)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path2_fill" transform="translate(-1037 432.174)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path3_fill" transform="translate(-953.8 457.609)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path3_fill" transform="translate(-953.8 483.043)" fill="#2FC3FD"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 8.47826C 0 3.79585 3.79585 0 8.47826 0L 74.7217 0C 79.4042 0 83.2 3.79585 83.2 8.47826C 83.2 13.1607 79.4042 16.9565 74.7217 16.9565L 8.47826 16.9565C 3.79585 16.9565 0 13.1607 0 8.47826Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 13.5947 25.8413C 11.9624 27.1411 9.59752 27.0257 8.09544 25.495L 1.21843 18.4872C -0.406143 16.8317 -0.406143 14.1477 1.21843 12.4922C 2.84306 10.8367 5.47697 10.8367 7.10161 12.4922L 11.0961 16.5627L 26.1312 1.24159C 27.7558 -0.413864 30.3898 -0.413864 32.0143 1.24159C 33.6389 2.89708 33.6389 5.58116 32.0143 7.23665L 14.365 25.2218C 14.1277 25.4636 13.8688 25.6701 13.5947 25.8413Z"/>
+<path id="path2_fill" d="M 0 20C 0 8.9543 8.9543 0 20 0L 46.56 0C 57.6057 0 66.56 8.9543 66.56 20L 66.56 47.8261C 66.56 58.8718 57.6057 67.8261 46.56 67.8261L 20 67.8261C 8.9543 67.8261 0 58.8718 0 47.8261L 0 20Z"/>
+<path id="path3_fill" d="M 0 8.47826C 0 3.79585 3.79585 0 8.47826 0L 116.322 0C 121.004 0 124.8 3.79585 124.8 8.47826C 124.8 13.1607 121.004 16.9565 116.322 16.9565L 8.47826 16.9565C 3.79585 16.9565 0 13.1607 0 8.47826Z"/>
+</defs>
+</svg>

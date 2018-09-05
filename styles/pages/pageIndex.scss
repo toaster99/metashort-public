@@ -1,0 +1,192 @@
+#pageIndex {
+
+	#productHuntAlert{
+		padding: 20px 40px;
+		background-color:#30C3FD;
+		color:white !important;
+
+		p {
+			color: white;
+		}
+
+		@include media-breakpoint-down(md) {
+			h4 {
+				font-size: 22px;
+			}
+
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+
+	overflow: hidden;
+	padding: 0;
+	#indexFeatures {
+		padding: 40px 20px;
+		.col-md-4 {
+			text-align: center;
+			padding: 0 20px;
+
+			@include media-breakpoint-down(md) {
+				padding: 0 30px;
+				margin-bottom: 60px;
+			}
+
+			img {
+				margin-bottom: 50px;
+				height: 80px;
+
+				@include media-breakpoint-down(md) {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+	#indexAboutMetaTags {
+		background-color: white;
+		padding: 40px 20px;
+		overflow: hidden;
+
+		@include media-breakpoint-down(sm) {
+			padding: 80px 20px;
+		}
+
+		.row {
+			max-width: 1400px;
+			margin: 0 auto;
+
+			&:first-child {
+				text-align: right;
+				margin-bottom: 80px;
+
+				@include media-breakpoint-down(sm) {
+					text-align: left;
+				}
+			}
+
+			img {
+				height: 170px;
+			}
+
+			@include media-breakpoint-down(sm) {
+				img {
+					order: 1;
+				}
+				.rowContent {
+					padding-top: 40px;
+					order: 2;
+				}
+			}
+		}
+		
+		#metaBoxBadColumn {
+			overflow: visible;
+			height: 170px;
+
+			img {
+				position: absolute;
+				left: 60px;
+
+				@include media-breakpoint-down(sm) {
+					left: -10px;
+				}
+			}
+		}
+
+		#metaBoxGoodColumn {
+			overflow: visible;
+			height: 170px;
+
+			img {
+				position: absolute;
+				right: 60px;
+
+				@include media-breakpoint-down(sm) {
+					right: -10px;
+				}
+			}
+		}
+	}
+
+	#indexAboutPricing {
+		padding: 40px 20px 0 20px;
+		#pricingRow {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: flex-end;
+
+			@include media-breakpoint-down(md) {
+				justify-content: unset;
+				align-items: unset;
+				flex-direction: column;
+				margin: 0 20px;
+			}
+		}
+
+		.pricingCard {
+			position: relative;
+			width: 300px;
+			border-radius: 15px 15px 0px 0px;
+			padding: 15px 15px 25px 15px;
+			text-align: center;
+			box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+			background-color: #F8F8F8;
+
+			@include media-breakpoint-down(md) {
+				border-radius: 15px;
+				margin: 20px 0;
+				width: 100%;
+
+				.btn {
+					width: 100%;
+					height: 50px;
+					padding-top: 10px;
+				}
+			}
+
+			&:first-child {
+				margin-right: 60px;
+			}
+
+			h5 {
+				margin-bottom: 10px;
+			}
+
+			&.primary {
+				background-color: #2FC3FD;
+
+				li {
+					color: #FFFFFF;
+				}
+
+				h5 {
+					color: #FFFFFF;
+				}
+
+				h6 {
+					color: #ECECEC;
+				}
+			}
+
+			ul {
+				margin: 0 0 20px 0;
+				padding: 0;
+				list-style: none;
+
+				li {
+					margin: 0;
+					padding: 0;
+					margin-bottom: 10px;
+					font-style: normal;
+					font-weight: 300;
+					line-height: normal;
+					font-size: 20px;
+
+					color: #66615C;
+				}
+			}
+		}
+	}
+}

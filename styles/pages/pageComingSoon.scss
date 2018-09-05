@@ -1,0 +1,26 @@
+#pageComingSoon {
+	// background-color: #F8F8F8;
+	height: 100%;
+	.container {
+		padding: 40px 20px 0 20px;
+
+		h3 {
+			margin-bottom: 20px;
+		}
+
+		p {
+			margin-bottom: 40px;
+		}
+
+		button.btn-primary {
+			padding: 15px 35px;
+			cursor: pointer;
+			text-transform: capitalize;
+			font-size: 20px;
+
+			@include media-breakpoint-down(md) {
+				width: 100%;
+			}
+		}
+	}
+}

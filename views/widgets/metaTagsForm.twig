@@ -1,0 +1,22 @@
+<div id="container-meta-tags">
+	<br>
+	{% if collapse %}<a class="lead collapsed" href="#content-basic-meta-tags" data-toggle="collapse" aria-expanded="false" aria-controls="content-basic-meta-tags" id="action-collapse-basic-meta-tags"><span class="collapse">-</span><span class="show">+</span>Customize basic meta tags</a>
+	<div class="{{collapse ? 'collapse' : ''}}" id="content-basic-meta-tags">{% endif %}
+		<div class="row">
+			<div class="col-md-6">
+				<label for="metaTitle">Title</label>
+				<input type="metaTitle" name="metaTitle" class="form-control small-control mb-4" id="inputMetaTitle" placeholder="Acme Inc. Lawncare" value="{{ metaTags.title ? metaTags.title : '' }}"></input>
+				<label for="metaDescription">Description</label>
+				<textarea type="metaDescription" name="metaDescription" id="inputMetaDescription" class="form-control">{{ metaTags.description ? metaTags.description : '' }}</textarea>
+			</div>
+			<div class="col-md-6">
+				<label for="metaImageURL">Image</label><br>
+				<input type="url" name="metaImageURL" class="form-control small-control" placeholder="http://mysite.com/meta_image.png"></input>
+				<p class="mt-2 text-center lead">- or -</p>
+				<div class="d-flex justify-content-center">
+					<a href="/signup" class="mt-0 btn btn-secondary disabled" data-toggle="tooltip" data-placement="top" title="Uploading images is available to Pro users!">Upload Image</a>
+				</div>
+			</div>
+		</div>
+	{% if collapse %}</div>{% endif %}
+</div>

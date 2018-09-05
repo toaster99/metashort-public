@@ -1,0 +1,56 @@
+{% extends 'master.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/pages/pageSignup-min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageAccountManage">
+		<div class="container full-height">
+			<div class="d-flex justify-content-center" style="margin-top: 40px;">
+				<ul class="nav nav-pills">
+					<li class="nav-item">
+						<a class="nav-link" href="/account">🔗 Your links</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/account/manage">👱 Manage account</a>
+					</li>
+				</ul>
+			</div>
+			<h3>Payment details</h3>
+			{% include 'widgets/errorMessages.twig' %}
+			<div class="card">
+				<p class="lead">Email address</p>
+				<p>{{ user.emailAddress }}</p>
+				<p class="lead" style="margin-top: 20px;">Subscription paid through</p>
+				<p>{{ user.activeThrough }}</p>
+				<p class="lead" style="margin-top: 20px;">Update credit card</p>
+				<form action="/account/manage" method="POST" id="formMembershipSignup" >
+					<input type="hidden" name="action" value="updateCC">
+					<div class="form-group">
+						<div id="card-element" class="form-control">
+							<!-- a Stripe Element will be inserted here. -->
+						</div>
+						<!-- Used to display Element errors -->
+						<div id="card-errors" role="alert"></div>
+					</div>
+					<button type="submit" class="btn btn-primary pull-right">Update card</button>
+				</form>
+			</div>
+			<div class="card">
+				<div class="text-center">
+					{% if user.stripeSubscriptionID %}
+						<p class="lead">Remember, you can always <a href="mailto:devalexwhite@gmail.com">contact support</a> if you have any questions.</p>
+						<form action="/account/manage" method="POST" style="margin-top: 40px;">
+							<input type="hidden" name="action" value="cancelAccount">
+							<button type="submit" class="btn-danger btn btn-lg btn-rounded" onclick="return confirm('Are you sure you wish to end your subscription? After {{ user.activeThrough }}, you will lose access to your account and saved links.');">End MetaShort subscription</button>
+						</form>
+						<p class="text-muted mt-4"><small>You will still have access to MetaShort until {{ user.activeThrough }}, after which your account will be deleted (along with all associated data).</small></p>
+					{% else %}
+						<p class="lead">Your subscription has been cancelled and your account will be closed on {{ user.activeThrough }}.</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

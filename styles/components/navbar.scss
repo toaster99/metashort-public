@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600');
+
+#navbar {
+    font-family: 'Work Sans', sans-serif;
+    position: relative;
+    text-align: center;
+    padding: 1.25rem 0;
+
+    .logo {
+        img {
+            width: 80px;
+            height: 80px;
+        }
+        margin-bottom: .625rem;
+    }
+
+    .mobileHamburger {
+        display: none;
+        font-size: 1.875rem;
+        
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
+    }
+
+    ul {
+        display: block;
+        list-style: none;   
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+
+        a {
+            font-size: 1.375rem;
+            font-weight: 400;
+            font-weight: 200;
+            color: #696969;
+            padding: 0 1.25rem;
+
+            &.current {
+                color: #34BDFE;
+            }
+    
+            @include media-breakpoint-down(sm) {
+                font-size: 1.625rem;
+            }
+        }
+    }
+
+}

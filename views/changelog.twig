@@ -1,0 +1,45 @@
+{% extends 'master.twig' %}
+
+{% block content %}
+	<div id="pageChangelog">
+		<div class="container full-height">
+			<h3>MetaShort changelog</h3>
+			<h4><small>October 9th 10:56</small></h4>
+			<ul>
+				<li>Footer fixes for Firefox</li>
+				<li>Added user accounts with Stripe for payment processing</li>
+				<li>Added stats page for links with graphs</li>
+				<li>Added account manager for viewing previously created links</li>
+			</ul>
+			<h4><small>October 8th 12:52</small></h4>
+			<ul>
+				<li>Speed improvements for page editor</li>
+			</ul>
+			<h4><small>October 6th 13:30</small></h4>
+			<ul>
+				<li>Links will be given as https 😲</li>
+				<li>Setup click tracking for links behind the scene in preperation of user accounts.</li>
+			</ul>
+			<h4><small>October 5th 22:38</small></h4>
+			<ul>
+				<li>Added links to page editor for Twitter card validator and Facebook Open Graph debugger.</li>
+				<li>Initial fetched meta tags will save when link first created.</li>
+				<li>Moved positioning of text on page editor.</li>
+			</ul>
+			<h4><small>October 3rd, 6:35PM</small></h4>
+			<ul>
+				<li>Style fixes for mobile.</li>
+				<li>Consistent spacing throughout site.</li>
+				<li>Reduced font size.</li>
+				<li>Decreased opacity of header image.</li>
+				<li>Added small.chat.</li>
+			</ul>
+			<h4><small>October 3rd, 12:44PM</small></h4>
+			<ul>
+				<li>Added changelog.</li>
+				<li>Smarter tag fetching. For example, if description tag is missing, but OG:Description is present, description field will be filled with OG:Description.</li>
+				<li>Fixed OG fields not fetching properly.</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

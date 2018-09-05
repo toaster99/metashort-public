@@ -1,0 +1,14 @@
+.twitterSummaryContainer {
+  font-style: 14px;
+  text-align: left;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.3em;
+  cursor: pointer;
+  outline-offset: -1px;
+  transition: background-color .15s ease-in-out, border-color .15s ease-in-out;
+  border-radius: .42857em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #E1E8ED;
+  box-sizing: border-box;
+  overflow: hidden; }

@@ -1,0 +1,65 @@
+#pageEditor {
+	padding: 0 20px;
+
+	#imageHeader {
+		height: 400px;
+		
+		#headerContent {
+			flex-direction: column;
+		}
+	}
+
+	#inputLink {
+		text-align: center;
+		margin: 0 auto;
+		width: 80%;
+		height: 75px;
+		border-radius: 10px;
+		border: 1px solid #2FC3FD;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		font-size: 38px;
+		margin-top: 20px;
+
+		@include media-breakpoint-down(md) {
+			font-size: 22px;
+			height: 50px;
+			width: 100%;
+		}
+	}
+
+	.list-group-item {
+		border-style: none none solid none;
+		margin-bottom: 10px;
+
+		&:last-child {
+			border: none;
+		}
+
+		&:after {
+			position: absolute;
+			top: 50%;
+			right: 15px;
+			content: ">";
+			font-weight: 300;
+			font-size: 40px;
+			-webkit-transform: translateY(-50%);
+			   -moz-transform: translateY(-50%);
+			    -ms-transform: translateY(-50%);
+			     -o-transform: translateY(-50%);
+			        transform: translateY(-50%);
+		}
+	}
+
+	button.btn-primary {
+		padding: 15px 35px;
+		cursor: pointer;
+		text-transform: capitalize;
+		font-size: 20px;
+
+		@include media-breakpoint-down(md) {
+			width: 100%;
+		}
+	}
+}

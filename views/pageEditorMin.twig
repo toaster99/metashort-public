@@ -1,0 +1,202 @@
+{% extends 'masterMin.twig' %} {% block scripts %}
+<script src="/scripts/pages/pageEditor-min.js"></script>
+{% endblock %} {% block content %} {% include 'navbar.twig' %}
+<div id="pageEditorMin">
+    <div class="container">
+        <div class="pageEditorLinkForm">
+            <h3 class="mb-4">Use this link when sharing on social media</h3>
+            <div class="pageEditorLinkTextContainer">
+                <div class="form">
+                    <input name="headerLink" type="text" class="pageEditorLinkText" id="inputHeaderLinkShortner" value="https://metashort.co/{{ shortURL }}"></input>
+                    <input type="hidden" name="action" value="createSite" />
+                    <button class="inputLinkAction btn btn-link" id="inputHeaderLinkCopyButton">copy</button>
+                </div>
+            </div>
+            <p class="lead">Customize your link preview below</p>
+        </div>
+        <div class="pageEditorMetaPreview">
+            <p class="lead text-left">
+                <i class="fa fa-eye mr-2"></i>Preview</p>
+                <div class="previewCard">
+                    {% include 'widgets/socialCards/twitterSummary.twig' with {'meta': metadata} %}
+                </div>
+                <div class="testLinks">
+                    <a href="https://cards-dev.twitter.com/validator" target="_blank"><i class="fa fa-twitter"></i>Test on Twitter</a>
+                    <a href="https://developers.facebook.com/tools/debug/og/object?q=https://metashort.co/{{ shortURL }}" target="_blank"><i class="fa fa-facebook"></i>Test on Facebook</a>
+                </div>
+            </div>
+            <div class="pageEditorMetaTagsForm text-left">
+                <p class="lead text-left">
+                    <i class="fa fa-pencil mr-2"></i>Link preview editor</p>
+                    <div class="card">
+                        <div class="editingCloseWarning" hidden>
+                            <p class="text-center">Link editing will close in
+                                <b>9 minutes</b>
+                                <br>
+                                <a href="">Add to your account to continue editing</a>
+                            </p>
+                        </div>
+                        <form action="/pageEditor.php?shortURL={{ shortURL }}" method="POST" id="formMetaTags">
+                            <input type="hidden" name="action" value="updateTags" /> 
+                            <div class="form-group row">
+                                <label for="metaTitle" class="col-md-3 col-form-label">Title</label>
+                                <div class="col-md-9">
+                                    <input type="text"  class="form-control" name="metaTitle" id="inputMetaTitle" placeholder="Acme Inc." value="{{ metadata.title }}" />
+                                    {% if suggestions.title|length > 0 %}
+                                        <div class="list-group suggestions-list hidden" data-target="#inputMetaTitle">
+                                            {% for suggestion in suggestions.title %}
+                                                <button type="button" class="list-group-item list-group-item-action">
+                                                    {{ suggestion }}
+                                                </button>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            {# Basic description tag #}
+                            <div class="form-group row">
+                                <label for="metaDescription" class="col-md-3 col-form-label">Description</label>
+                                <div class="col-md-9">
+                                    <input type="text"  class="form-control" name="metaDescription" id="inputMetaDescription" placeholder="Our company is #1 in doing what's right." value="{{ metadata.description }}" />
+                                    {% if suggestions.description|length > 0 %}
+                                        <div class="list-group suggestions-list hidden" data-target="#inputMetaDescription">
+                                            {% for suggestion in suggestions.description %}
+                                                <button type="button" class="list-group-item list-group-item-action" onclick="trackEvent('testing', 'used_suggestion', '', '', false);">
+                                                    {{ suggestion }}
+                                                </button>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {# Basic image tag #}
+                            <div class="form-group row">
+                                <label for="metaImageURL" class="col-md-3 col-form-label">Image URL</label>
+                                <div class="col-md-9">
+                                    <input type="url" class="form-control" name="metaImageURL" id="inputMetaImageURL" placeholder="http://acmeinc.com/metaImage.png" value="{{ metadata.imageURL }}" />
+                                    {% if suggestions.images|length > 0 %}
+                                     <div class="list-group suggestions-list hidden" data-target="#inputMetaImageURL">
+                                        {% for suggestion in suggestions.images %}
+                                            <button type="button" class="list-group-item list-group-item-action">
+                                                {{ suggestion }}
+                                            </button>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {# Basic keywords tag #}
+                        <div class="form-group row">
+                            <label for="metaKeywords" class="col-md-3 col-form-label">Keywords</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="metaKeywords" id="inputMetaKeywords" placeholder="widgets, company, wholesale" value="{{ metadata.keywords }}" />
+                            </div>
+                        </div>
+                        <div class="buttonHolder">
+                            <button type="submit" href="#" class="btn btn-secondary">Save & update preview</button>
+                        </div>
+                    </div>
+                    <div id="pageEditorAdvancedMetaTags" style="display: none;">
+                        <p class="lead text-left" style="margin-top: 6.25rem;">
+                            <i class="fa fa-twitter mr-2"></i>Twitter customization</p>
+                            <div class="card">
+                                <div class="radio-group">
+                                    <label for="metaTwitterCard">Card style</label>
+                                    <br>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="metaTwitterCard" id="inputMetaTwitterCard" value="summary" {{ metadata[
+                                        'twitter:card'] ? metadata[ 'twitter:card']=='summary' ? 'checked' : '' : 'checked'}}> Summary
+                                    </label>
+                                    <br>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="metaTwitterCard" id="inputMetaTwitterCard" value="summary_large_image"
+                                        {{ metadata[ 'twitter:card']=='summary_large_image' ? 'checked' : '' }}> Summary with large image
+                                    </label>
+                                    <br>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="metaTwitterCard" id="inputMetaTwitterCard" value="player" {{ metadata[
+                                        'twitter:card']=='player' ? 'checked' : '' }}> Player
+                                    </label>
+                                    <br>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="metaTwitterCard" id="inputMetaTwitterCard" value="app" {{ metadata[
+                                        'twitter:card']=='app' ? 'checked' : '' }}> App
+                                    </label>
+                                    <br>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="metaTwitterSite" class="col-md-3 col-form-label">Site account</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="metaTwitterSite" id="inputMetaTwitterSite" placeholder="@acmeInc" value="{{ metadata['twitter:site'] }}" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="metaTwitterCreator" class="col-md-3 col-form-label">Creator account</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="metaTwitterCreator" id="inputMetaTwitterCreator" placeholder="@acmeInc" value="{{ metadata['twitter:creator'] }}" />
+                                    </div>
+                                </div>
+                                <div class="buttonHolder">
+                                    <button type="submit" href="#" class="btn btn-secondary">Save & update preview</button>
+                                </div>
+                            </div>
+                            <p class="lead text-left" style="margin-top: 6.25rem;">
+                                <i class="fa fa-facebook mr-2"></i>Facebook customization</p>
+                                <div class="card">
+                                    <div class="radio-group">
+                                        <label for="metaOpenGraphType">Type</label>
+                                        <br>
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="metaOpenGraphType" id="inputMetaOpenGraphType" value="website" {{ metadata[
+                                            'og:type'] ? metadata[ 'og:type']=='website' ? 'checked' : '' : 'checked'}}> Website
+                                        </label>
+                                        <br>
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="metaOpenGraphType" id="inputMetaOpenGraphType" value="article" {{ metadata[
+                                            'og:type']=='article' ? 'checked' : '' }}> Article
+                                        </label>
+                                        <br>
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="metaOpenGraphType" id="inputMetaOpenGraphType" value="book" {{ metadata[
+                                            'og:type']=='book' ? 'checked' : '' }}> Book
+                                        </label>
+                                        <br>
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="metaOpenGraphType" id="inputMetaOpenGraphType" value="profile" {{ metadata[
+                                            'og:type']=='profile' ? 'checked' : '' }}> Profile
+                                        </label>
+                                        <br>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="metaOpenGraphTitle" class="col-md-3 col-form-label">Open graph title</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="metaOpenGraphTitle" id="inputMetaOpenGraphTitle" placeholder="Acme Inc." value="{{ metadata['og:title'] }}" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="metaFacebookAppID" class="col-md-3 col-form-label">Facebook app ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="metaFacebookAppID" id="inputMetaFacebookAppID" placeholder="your_app_id" value="{{ metadata['fb:app_id'] }}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="metaOpenGraphImageURL" class="col-md-3 col-form-label">Open graph image</label>
+                                        <div class="col-md-9">
+                                            <input type="url" class="form-control" name="metaOpenGraphImageURL" id="inputMetaOpenGraphImageURL" placeholder="http://acmeinc.com/metaCard.png"
+                                            value="{{ metadata['og:image:url'] }}"/>
+                                        </div>
+                                    </div>
+                                    <div class="buttonHolder">
+                                        <button type="submit" href="#" class="btn btn-secondary">Save & update preview</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-link" id="pageEditorShowAdvancedButton">+ Show advanced options</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}

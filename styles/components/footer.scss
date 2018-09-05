@@ -1,0 +1,47 @@
+#indexFooter {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	background-color: #3C3C3C;
+	padding: 20px 20px;
+
+	@include media-breakpoint-down(sm) {
+		height: unset;
+
+		justify-content: center;
+
+		img {
+			width: 60px;
+			height: 60px;
+		}
+	}
+
+	#footerLogo {
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		font-size: 50px;
+
+		color: #F8F8F8;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 40px;
+		}
+	}
+
+	#footerAttribution {
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		font-size: 20px;
+
+		color: #F8F8F8;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 16px;
+		}
+	}
+}

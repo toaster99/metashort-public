@@ -1,0 +1,39 @@
+<svg width="250" height="92" viewBox="0 0 250 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>graphIcon</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(605 -418)">
+<g id="graphIcon">
+<g id="Rectangle 15">
+<use xlink:href="#path0_fill" transform="translate(-605 500)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path1_fill" transform="matrix(6.00614e-17 1 -1 5.13057e-17 -561.003 434)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path2_fill" transform="matrix(8.21892e-17 1 -1 3.74926e-17 -530.493 435.507)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path3_fill" transform="matrix(8.21892e-17 1 -1 3.74926e-17 -500.497 421.326)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path1_fill" transform="matrix(6.00614e-17 1 -1 5.13057e-17 -440.505 427)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path2_fill" transform="matrix(8.21892e-17 1 -1 3.74926e-17 -409.996 429.507)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path3_fill" transform="matrix(8.21892e-17 1 -1 3.74926e-17 -380 418.326)" fill="#2FC3FD"/>
+</g>
+<g id="Rectangle 15">
+<use xlink:href="#path4_fill" transform="matrix(8.21892e-17 1 -1 3.74926e-17 -471 458)" fill="#2FC3FD"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 5C 0 2.23858 2.23858 0 5 0L 245 0C 247.761 0 250 2.23858 250 5C 250 7.76142 247.761 10 245 10L 5 10C 2.23858 10 0 7.76142 0 5Z"/>
+<path id="path1_fill" d="M 0 9.99862C 0 4.47653 4.47653 0 9.99862 0L 46.904 0C 52.4261 0 56.9026 4.47653 56.9026 9.99862C 56.9026 15.5207 52.4261 19.9972 46.904 19.9972L 9.99862 19.9972C 4.47653 19.9972 0 15.5207 0 9.99862Z"/>
+<path id="path2_fill" d="M 0 9.99862C 0 4.47653 4.47653 0 9.99862 0L 28.4942 0C 34.0163 0 38.4928 4.47653 38.4928 9.99862C 38.4928 15.5207 34.0163 19.9972 28.4942 19.9972L 9.99862 19.9972C 4.47653 19.9972 0 15.5207 0 9.99862Z"/>
+<path id="path3_fill" d="M 0 9.99862C 0 4.47653 4.47653 0 9.99862 0L 42.6758 0C 48.1979 0 52.6744 4.47653 52.6744 9.99862C 52.6744 15.5207 48.1979 19.9972 42.6758 19.9972L 9.99862 19.9972C 4.47653 19.9972 0 15.5207 0 9.99862Z"/>
+<path id="path4_fill" d="M 0 9.5C 0 4.25329 4.25329 0 9.5 0L 24.5 0C 29.7467 0 34 4.2533 34 9.5L 34 9.5C 34 14.7467 29.7467 19 24.5 19L 9.5 19C 4.25329 19 0 14.7467 0 9.5L 0 9.5Z"/>
+</defs>
+</svg>

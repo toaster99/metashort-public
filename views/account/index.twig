@@ -1,0 +1,70 @@
+{% extends 'master.twig' %}
+
+{% block scripts %}
+	<script src="/scripts/jspark.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="pageAccount">
+		<div class="container full-height">
+			{% include 'widgets/errorMessages.twig' %}
+			<div class="d-flex justify-content-center" style="margin-top: 40px;">
+				<ul class="nav nav-pills">
+					<li class="nav-item">
+						<a class="nav-link active" href="/account">🔗 Your links</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/account/manage">👱 Manage account</a>
+					</li>
+				</ul>
+			</div>
+			<table class="table mt-4 table-striped table-responsive">
+				<thead>
+					<th>Link</th>
+					<th>MetaShort</th>
+					<th>Last update</th>
+					<td>Visits</td>
+					<th></th>
+				</thead>
+				<tbody>
+					{% if userSites|length > 0 %}
+						{% for site in userSites %}
+							<tr>
+								<td><a target="_blank" href="{{ site.URL }}">{{ site.URL }}</a></td>
+								<td><a target="_blank" href="/{{ site.shortURL }}">MetaShort.co/{{ site.shortURL }}</a></td>
+								<td>{{ site.timeUpdated }}</td>
+								<td>
+									<span class="sparkline" style="display: none;">
+										{% for key, stats in site.visitStats %}
+											{{ stats }}{% if not loop.last %},{% endif %}
+										{% endfor %}
+									</span>
+								</td>
+								<td class="">
+									<div class="d-flex flex-row justify-content-start align-items-center">
+										<a href="/{{ site.shortURL }}/edit" class="mr-4"><i class="fa fa-pencil mr-1" aria-hidden="true"></i>edit</a>
+										<a href="/{{ site.shortURL }}/stats" class="mr-4"><i class="fa fa-line-chart mr-1" aria-hidden="true"></i>stats</a>
+										<a href="#" class="" style="color: red;" onclick="if(confirm('Are you sure you wish to delete this MetaShort link? The link will no longer work after this action, and this cannot be undone.')) document.getElementById('form{{ site.ID }}Delete').submit();"><i class="fa fa-trash-o mr-1" aria-hidden="true" ></i>delete</a>
+										<form action="/account/index.php" method="POST" class="h-100 mb-0" id="form{{ site.ID }}Delete">
+											<input type="hidden" name="action" value="deleteSite" />
+											<input type="hidden" name="siteID" value="{{ site.ID }}" />
+										</form>
+									</div>
+								</td>
+							</tr>
+						{% endfor %}
+					{% else %}
+						<tr>
+							<td>
+								<p class="lead">You have not created a MetaShort link yet, <a href="/">click here</a> to get started.</p>
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					{% endif %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

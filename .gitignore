@@ -1,0 +1,4 @@
+config.codekit3
+vendor/
+composer.lock
+.phpintel/

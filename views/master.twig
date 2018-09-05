@@ -1,0 +1,80 @@
+<html>
+<head>
+	<meta name="google-site-verification" content="ABJIRIzQDjNeUJEY83oDjEV0Yho5_EGJwjrhkO0eTuo" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<meta charset="UTF-8">
+	<meta property="og:url" content="http://metashort.co/" />
+	<meta property="og:type" content="website" />
+	<title>MetaShort - Link shortener with meta tag customization</title>
+	<meta property="og:title" content="MetaShort - Link shortener with meta tag customization" />
+	<meta name="twitter:title" content="MetaShort - Link shortener with meta tag customization" />
+	<meta property="og:description" content="Quickly change tags, customize your social media links and A/B test meta tags. All without a developer." />
+	<meta name="description" content="Quickly change tags, customize your social media links and A/B test meta tags. All without a developer."><meta name="twitter:description" content="Quickly change tags, customize your social media links and A/B test meta tags. All without a developer." />
+	<meta property="og:image" content="http://metashort.co/images/seoCard.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="http://metashort.co/images/seoCard.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="/scripts/jquery.min.js"></script>
+	<script src="/scripts/popper.min.js"></script>
+	<script src="/scripts/bootstrap.min.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
+
+	{% if not isDevServer %}
+		<script>
+			var stripe = Stripe('pk_live_9OEpd8iwIrhAooumBRLRlpCK');
+			var elements = stripe.elements();
+		</script>
+	{% else %}
+		<script>
+			var stripe = Stripe('pk_test_7qvn4rlgOHl9LgnOOC0YFhtQ');
+			var elements = stripe.elements();
+		</script>
+	{% endif %}
+
+	{% block scripts %}
+	{% endblock %}
+
+	<link rel="stylesheet" type="text/css" href="/styles/site.css">
+	{% block styles %}
+	{% endblock %}
+	{# Google analytics - Prod only #}
+	{% if not isDevServer %}
+		<!-- Global Site Tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58825605-10"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments)};
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-58825605-10');
+		</script>
+		<script src="https://embed.small.chat/T7N3TV7BNG7N2ABD1Q.js" async></script>
+	{% endif %}
+</head>
+<body>
+	<div class="wrapper">
+		{% include 'navbar.twig' %}
+		{% block content %}
+		{% endblock %}
+		{% include 'widgets/footer.twig' %}
+	</div>
+</body>
+</html>
